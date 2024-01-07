@@ -1,9 +1,10 @@
 import React from 'react'
+import ModalComponet from './Modal'
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div>
-      <h1>Home</h1>
+      <ModalComponet/>
     </div>
   )
 }

@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import isEmail from 'validator/lib/isEmail'
 import { useDispatch } from 'react-redux'
 import { userLogin } from '../actions/userActions'
 import { loginAction } from '../actions/loginAction'
 import { registerAction } from '../actions/registrationAction'
 import { isLogged } from '../actions/loggedAction'
-
-
-
 
 const Login = (props) => {
     const [email, setEmail] = useState('')

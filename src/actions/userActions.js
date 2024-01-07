@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const userLogin =  (formData, clearAndDispatch) => {
+export const userLogin =  (formData, resetAndDispatch) => {
     return (
         async () => {
             try {
@@ -12,16 +12,16 @@ export const userLogin =  (formData, clearAndDispatch) => {
                 } else if(data.hasOwnProperty('token')){
                     alert('Login Successful', 'success')
                     localStorage.setItem('token',data.token)
-                    clearAndDispatch()
+                    resetAndDispatch()
                 }
             } catch (error) {
-                normalAlert(error.message, 'error')
+                alert(error.message, 'error')
             }
         }
     )
 }
 
-export const userRegistration=(formData,clearAndDispatch)=>{
+export const userRegistration=(formData,resetAndDispatch)=>{
     return(
         async()=>{
             try {
@@ -30,7 +30,7 @@ export const userRegistration=(formData,clearAndDispatch)=>{
                     alert(data.message,'info')
                 }else{
                     alert(data.success,'successfully Registered With Us')
-                    clearAndDispatch()
+                    resetAndDispatch()
                 }
             } catch (error) {
                 alert(error.message,'error')

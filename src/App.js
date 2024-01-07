@@ -1,11 +1,13 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import NavBar from './components/NavBar'
+import Home from './components/Home'
 
-const App = () => {
+const App = (props) => {
   return (
     <div className='App'>
         <NavBar/>
+        <Home/>
     </div>
   )
 }

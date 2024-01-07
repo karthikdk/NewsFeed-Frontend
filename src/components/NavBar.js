@@ -1,12 +1,20 @@
 import React from 'react'
 import {Navbar, Container, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginAction } from '../actions/loginAction'
+import { isLogged } from '../actions/loggedAction'
+
 
 const NavBar = (props) => {
+    const dispatch=useDispatch()
+
     const isLogged = useSelector((state)=>{
         return state.isLogged
     })
+
+    
+
   return (
     <div>
     <Navbar 
