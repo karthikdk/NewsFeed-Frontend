@@ -1,12 +1,28 @@
 import React from 'react'
 import isEmail from 'validator/lib/isEmail'
+import { useDispatch } from 'react-redux'
+import { userLogin } from '../actions/userActions'
+import { loginAction } from '../actions/loginAction'
+import { registerAction } from '../actions/registrationAction'
+import { isLogged } from '../actions/loggedAction'
+
+
+
+
 const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [formErrors, setFormErrors] = useState({})
     const errors = {}
 
+    const dispatch = useDispatch()
+
     const validationStyle = {color : 'red'}
+
+    const handleRegisterToggle = () => {
+        dispatch(loginAction())
+        dispatch(registerAction())
+    }
 
     const handleChange = (e) => {
         const name = e.target.name
@@ -16,7 +32,7 @@ const Login = (props) => {
             setPassword(e.target.value.trim())
         }
     }
-    
+
     const runValidations = () => {
         //email validations
         if(email.length === 0){
@@ -30,6 +46,31 @@ const Login = (props) => {
         //password validations
         if(password.trim().length === 0){
             errors.password = 'Password cannot be empty'
+        }
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        runValidations()
+
+        if(Object.keys(errors).length === 0){
+            setFormErrors({})
+
+            const resetAndDispatch = () => {
+                setEmail('')
+                setPassword('')
+                dispatch(loginAction())
+                dispatch(isLogged())
+            }
+
+            const formData = {
+                email, password
+            }
+            
+            dispatch(userLogin(formData, resetAndDispatch))
+
+        } else {
+            setFormErrors(errors)
         }
     }
 
@@ -60,7 +101,7 @@ const Login = (props) => {
                     <input className="btn btn-primary" type='submit' value="Login" />
         </form>
         <p className='mt-2' style={{textAlign:'center'}}>Don't have an account?
-        <button className='btn btn-outline-primary'>Register here!</button>
+        <button className='btn btn-outline-primary' onClick={handleRegisterToggle} >Register here!</button>
         </p>
 
     </div>
