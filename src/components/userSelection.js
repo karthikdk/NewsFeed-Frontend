@@ -8,7 +8,7 @@ import { setPostsPerPage } from '../actions/postsPerpageActions'
 
 
 
-const UserSelection = () => {
+const UserSelection = (props) => {
     const categories = ['latest', 'india', 'technology', 'cricket']
     const dispatch = useDispatch()
 
@@ -34,11 +34,11 @@ const UserSelection = () => {
     }
   return (
     <div className="mt-3 mb-4">
-    <h2 className="text-center">You are reading the {category.charAt(0).toUpperCase() + category.slice(1)} articles from {source}</h2>
+    <h2 className="text-center">{category?.charAt(0).toUpperCase() + category.slice(1)} articles from {source}</h2>
         <div className="d-flex justify-content-between mt-3">
         <form className="d-flex justify-content-start">
             <div className="form-group  me-5">
-                <label>Change the Source of Articles</label>
+                <label>News Source:</label>
                 <select 
                     className="form-control"
                     value={source} 
@@ -49,7 +49,7 @@ const UserSelection = () => {
                 </select>
             </div>
             <div className="form-group">
-                <label>Change the Category</label>
+                <label>Category</label>
                 <select 
                     className="form-control"
                     value={category}
@@ -60,7 +60,7 @@ const UserSelection = () => {
                         return <option
                             key={i}
                             value={cat}
-                        >{cat.charAt(0).toUpperCase()+cat.slice(1)}</option>
+                        >{cat?.charAt(0)?.toUpperCase()+cat?.slice(1)}</option>
                     })}
                 </select>
             </div>
