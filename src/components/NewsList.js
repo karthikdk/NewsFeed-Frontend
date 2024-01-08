@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import startGetArticles from '../actions/newsArticleActions'
+import NewsArticle from './NewsArticle'
 
 const NewsList = (props) => {
     const dispatch = useDispatch()
@@ -15,7 +16,7 @@ const NewsList = (props) => {
          {articles.length  ? (
                     <div>
                         {articles.map(article => {
-                            return <ArticleItem
+                            return <NewsArticle
                                 key={article._id}
                                 {...article}
                             />
