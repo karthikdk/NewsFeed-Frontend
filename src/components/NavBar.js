@@ -23,7 +23,12 @@ const NavBar = (props) => {
         localStorage.removeItem('token')
         dispatch(isLogged())
         dispatch(logoutUser())
-        alert('logout Success')
+        if(handleLogoutClick){
+            const confirm=window.confirm('Are you Sure You Want to Logout..!!')
+            if(confirm){
+                alert('logout Success')
+            }
+        }
     }
 
   return (
@@ -37,11 +42,11 @@ const NavBar = (props) => {
         <Navbar.Collapse className="justify-content-end">
         {isLoggedIn ? (
                         <React.Fragment>
-                            <Button variant="dark" onClick={handleLogoutClick}><FaUser style={{width:'20px',height:'30px'}}/>  Logout</Button>
+                            <Button variant="danger" onClick={handleLogoutClick}><FaUser style={{width:'20px',height:'30px'}}/>  Logout</Button>
                          </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                <Button variant="dark" onClick={()=>{
+                                <Button variant="info" onClick={()=>{
                                     dispatch(loginAction())
                                 }} ><FaUser style={{width:'20px',height:'30px'}}/>  LogIn</Button>
                             </React.Fragment>

@@ -34,6 +34,7 @@ const ModalComponet = (props) => {
         <Modal 
             show={loginToggle || registerToggle}
             onHide={handleModal}
+            data-ds-backdrop='static'
         >
 
          <Modal.Header closeButton>
