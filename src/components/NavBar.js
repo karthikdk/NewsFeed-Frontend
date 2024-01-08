@@ -27,6 +27,8 @@ const NavBar = (props) => {
             const confirm=window.confirm('Are you Sure You Want to Logout..!!')
             if(confirm){
                 alert('logout Success')
+            }else{
+                dispatch(isLogged())
             }
         }
     }
