@@ -3,7 +3,7 @@ import ModalComponet from './Modal'
 
 const Home = (props) => {
   return (
-    <div>
+    <div className='container'>
       <ModalComponet/>
     </div>
   )

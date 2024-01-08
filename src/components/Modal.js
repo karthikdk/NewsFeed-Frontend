@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal'
 
 import Login from './Login'
 import Register from './Register'
+
 import { loginAction } from '../actions/loginAction'
 import { registerAction } from '../actions/registrationAction'
 
@@ -31,7 +32,7 @@ const ModalComponet = (props) => {
   return (
     <div>
         <Modal 
-            show={loginToggle||registerToggle}
+            show={loginToggle || registerToggle}
             onHide={handleModal}
         >
 
@@ -42,7 +43,7 @@ const ModalComponet = (props) => {
          </Modal.Header>
 
          <Modal.Body>
-         {loginToggle ? <Login/> : registerToggle && <Register/>}
+              {loginToggle ? <Login/> : registerToggle && <Register/>}
          </Modal.Body>
         </Modal>
     </div>

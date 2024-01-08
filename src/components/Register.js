@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import isEmail from 'validator/lib/isEmail'
-import { userRegistration } from '../actions/userActions'
 import { registerAction } from '../actions/registrationAction'
+import { loginAction } from '../actions/loginAction'
+import { userRegistraion } from '../actions/userActions'
 
 
 const Register = (props) => {
@@ -65,13 +66,14 @@ const Register = (props) => {
                 setEmail('')
                 setPassword('')
                 dispatch(registerAction())
+                dispatch(loginAction())
             }
 
             const formData = {
                 email, password , name : fullName.trim()
             } 
 
-            dispatch(userRegistration(formData, resetAndDispatch))
+            dispatch(userRegistraion(formData, resetAndDispatch))
             
         } else {
             setFormErrors(errors)
