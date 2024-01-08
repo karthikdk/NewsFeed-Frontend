@@ -73,7 +73,7 @@ const Login = (props) => {
 
   return (
     <div>
-        <form className='mt-3' onSubmit={handleSubmit}>
+        <form className='mt-3' onSubmit={handleSubmit} autoComplete='off'>
              <label>Enter Your Email</label> 
                     <br/>
                     <input
@@ -95,10 +95,10 @@ const Login = (props) => {
                         name="password"
                     />
                     {formErrors.password ? <p style={validationStyle}>{formErrors.password}</p> : <br/>}
-                    <input className="btn btn-primary" type='submit' value="Login" />
+                    <input className="btn btn-outline-primary" type='submit' value="Login" />
         </form>
         <p className='mt-2' style={{textAlign:'center'}}>Don't have an account?
-        <button className='btn btn-outline-primary' onClick={handleRegisterToggle} >Register here!</button>
+            <button className='btn btn-outline-primary' onClick={handleRegisterToggle} >Register here!</button>
         </p>
 
     </div>

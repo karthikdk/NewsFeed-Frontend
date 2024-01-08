@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import {Navbar, Container, Button} from 'react-bootstrap'
+import {FaUser} from 'react-icons/fa6'
 import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginAction } from '../actions/loginAction'
@@ -10,28 +11,19 @@ const NavBar = (props) => {
     const dispatch=useDispatch()
 
     const isLoggedIn = useSelector((state)=>{
-        return state.isLoggedIn
+        return state.isLogged
     })
-
-    const user = useSelector((state)=> {
-        return state.user
-    })
-
     useEffect(()=>{
-        if(isLogged){
+        if(isLoggedIn){
             dispatch(startGetUser())
         }
     }, [isLoggedIn, dispatch])
 
     const handleLogoutClick = () => {
-        const logoutAndDispatch = () => {
-            localStorage.removeItem('token')
-            dispatch(isLogged())
-            dispatch(logoutUser())
-        }
-        if(logoutAndDispatch){
-            alert('logout success')
-        }
+        localStorage.removeItem('token')
+        dispatch(isLogged())
+        dispatch(logoutUser())
+        alert('logout Success')
     }
 
   return (
@@ -45,19 +37,13 @@ const NavBar = (props) => {
         <Navbar.Collapse className="justify-content-end">
         {isLoggedIn ? (
                         <React.Fragment>
-                                <Navbar.Text>
-                                    Signed in as: {user.name}
-                                </Navbar.Text>
-                                <Button variant="dark" onClick={handleLogoutClick}>Logout</Button>
+                            <Button variant="dark" onClick={handleLogoutClick}><FaUser style={{width:'20px',height:'30px'}}/>  Logout</Button>
                          </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                <Navbar.Text>
-                                    Welcome User
-                                </Navbar.Text>
                                 <Button variant="dark" onClick={()=>{
                                     dispatch(loginAction())
-                                }} >LogIn</Button>
+                                }} ><FaUser style={{width:'20px',height:'30px'}}/>  LogIn</Button>
                             </React.Fragment>
                         )
                     }
