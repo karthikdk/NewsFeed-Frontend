@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import NewsArticle from './NewsArticle'
-import startGetArticles from '../actions/newsArticleActions'
-
+import { startGetArticles } from '../actions/newsArticlesAction'
 
 const NewsList = (props) => {
     const dispatch = useDispatch()
