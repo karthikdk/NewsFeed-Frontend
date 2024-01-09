@@ -82,7 +82,7 @@ const Register = (props) => {
 
   return (
     <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete='off'>
                 <label>Enter Your Full Name</label> 
                 <br/>
                 <input 

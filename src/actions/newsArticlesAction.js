@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios'
 
-export const startGetArticles=(source,category,pageNo,posts)=>{
+export const startGetArticles = (source, category, pageNo, posts) => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(`http://localhost:3060/api/articles/list/?source=${source}&category=${category}&page=${pageNo}&posts=${posts}`)
@@ -10,7 +10,8 @@ export const startGetArticles=(source,category,pageNo,posts)=>{
         }
     }
 }
-export const setArticles = (articles) => {
+
+const setArticles = (articles) => {
     return {
         type : 'SET_ARTICLES',
         payload : articles

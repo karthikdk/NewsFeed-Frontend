@@ -1,12 +1,9 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-
 import { setSource } from '../actions/sourceActions'
 import { setCategory } from '../actions/categoryActions'
 import { setPageNo } from '../actions/pageNumberActions'
 import { setPostsPerPage } from '../actions/postsPerpageActions'
-
-
 
 const UserSelection = (props) => {
     const categories = ['latest', 'india', 'technology', 'cricket']
@@ -34,11 +31,11 @@ const UserSelection = (props) => {
     }
   return (
     <div className="mt-3 mb-4">
-    <h2 className="text-center">{category?.charAt(0).toUpperCase() + category.slice(1)} articles from {source}</h2>
-        <div className="d-flex justify-content-between mt-3">
-        <form className="d-flex justify-content-start">
+    <h2 className="text-center">{category.charAt(0).toUpperCase() + category.slice(1)} Articles From {source}</h2>
+    <div className="d-flex justify-content-between mt-3">
+        <form className="d-flex justify-content-end">
             <div className="form-group  me-5">
-                <label>News Source:</label>
+                <label>News Source</label>
                 <select 
                     className="form-control"
                     value={source} 
@@ -49,7 +46,7 @@ const UserSelection = (props) => {
                 </select>
             </div>
             <div className="form-group">
-                <label>Category</label>
+                <label>Categories</label>
                 <select 
                     className="form-control"
                     value={category}
@@ -60,25 +57,25 @@ const UserSelection = (props) => {
                         return <option
                             key={i}
                             value={cat}
-                        >{cat?.charAt(0)?.toUpperCase()+cat?.slice(1)}</option>
+                        >{cat.charAt(0).toUpperCase()+cat.slice(1)}</option>
                     })}
                 </select>
             </div>
         </form>
         <form>
-                    <label>Articles per page</label>
-                    <select 
-                        className="form-control"
-                        value={postsPerPage} 
-                        onChange={(e)=>dispatch(setPostsPerPage(e.target.value))}
-                    >
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                    </select>
-                </form>
-       </div>
+            <label>Articles per page</label>
+            <select 
+                className="form-control"
+                value={postsPerPage} 
+                onChange={(e)=>dispatch(setPostsPerPage(e.target.value))}
+            >
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </form>
+    </div>
 </div>
   )
 }
