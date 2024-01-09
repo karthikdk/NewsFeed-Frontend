@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { startGetArticles } from '../actions/newsArticlesAction'
-import NewsArticle from './NewsArticleData'
+import React, { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { startGetArticles } from "../actions/articlesActions"
+import NewsArticle from "./NewsArticleData"
 
-const NewsList = (props) => {
+const ArticlesList = (props) => {
     const dispatch = useDispatch()
 
     const {source, category, pageNo, postsPerPage, articles} = useSelector((state)=>{
@@ -11,28 +11,28 @@ const NewsList = (props) => {
     })
     useEffect(()=>{
         dispatch(startGetArticles(source, category, pageNo, postsPerPage))
-    },[source,category,pageNo,postsPerPage, dispatch])
-  return (
-    <div>
-         {articles.length  ? (
+    },[source, category, pageNo, postsPerPage, dispatch])
+    return (
+        <div>
+            <h1>hi</h1>
+            {articles.length  ? (
                     <div>
                         {articles.map(article => {
                             return <NewsArticle
-                                key={article.id}
+                                key={article._id}
                                 {...article}
                             />
                         })}
                     </div>
                 ) : (
-                    // <div style={{height : '45vh', textAlign : 'center', marginTop : '200px'}}>
-                    //     <h2>Nothing to show here.</h2>
-                    //     <h2>Go Back.</h2>
-                    // </div>
-                    <div></div>
+                    <div style={{height : '45vh', textAlign : 'center', marginTop : '200px'}}>
+                        <h2>Nothing to show here.</h2>
+                        <h2>Go Back.</h2>
+                    </div>
                 )
             }
-    </div>
-  )
+        </div>
+    )
 }
 
-export default NewsList
+export default ArticlesList

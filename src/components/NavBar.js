@@ -28,7 +28,7 @@ const NavBar = (props) => {
             if(confirm){
                 alert('logout Success')
             }else{
-                dispatch(isLogged())
+                dispatch(logoutUser())
             }
         }
     }

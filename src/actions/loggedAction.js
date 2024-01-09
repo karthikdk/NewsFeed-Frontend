@@ -1,5 +1,5 @@
 export const isLogged=()=>{
     return{
-        type:'TOGGLE'
+        type: 'TOGGLE'
     }
 }

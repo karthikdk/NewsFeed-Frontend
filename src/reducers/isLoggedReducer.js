@@ -1,4 +1,4 @@
-const isLoggedInitialValue = localStorage.getItem('token') ? true : false
+const isLoggedInitialValue=localStorage.getItem('token')?true:false
 
 const isLoggedReducer = (state = isLoggedInitialValue, action) => {
     switch(action.type){
