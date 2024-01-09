@@ -5,7 +5,6 @@ export const userLogin =  (formData, resetAndDispatch) => {
         async () => {
             try {
                 const { data } = await axios.post('http://localhost:3060/api/users/login',formData)
-                console.log('login',data)
                 if(data.hasOwnProperty('notice')){
                     alert(data.notice, 'error')
                 } else if(data.hasOwnProperty('errors') || data.hasOwnProperty('message')){

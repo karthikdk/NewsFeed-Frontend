@@ -1,6 +1,6 @@
-const initialArticlesValue = []
+const initialArticlesValue=[]
 
-const articlesReducer = (state = initialArticlesValue, action) => {
+const articlesReducer=(state=initialArticlesValue,action)=>{
     switch(action.type){
         case 'SET_ARTICLES' : {
             return [...action.payload]
@@ -10,5 +10,4 @@ const articlesReducer = (state = initialArticlesValue, action) => {
         }
     }
 }
-
 export default articlesReducer

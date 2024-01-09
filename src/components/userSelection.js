@@ -6,7 +6,7 @@ import { setPageNo } from '../actions/pageNumberActions'
 import { setPostsPerPage } from '../actions/postsPerpageActions'
 
 const UserSelection = (props) => {
-    const categories = ['latest', 'india', 'technology', 'cricket']
+    const categories = ['Top Stories', 'World', 'Cricket', 'Environment','Education']
     const dispatch = useDispatch()
 
     const category = useSelector((state)=>{

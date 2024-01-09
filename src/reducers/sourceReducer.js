@@ -1,4 +1,4 @@
-const initialSourceValue ='Times Of India'
+const initialSourceValue ='TOI'
 
 const sourceReducer = (state = initialSourceValue, action) => {
     switch(action.type){

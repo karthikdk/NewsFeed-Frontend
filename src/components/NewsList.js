@@ -14,7 +14,6 @@ const ArticlesList = (props) => {
     },[source, category, pageNo, postsPerPage, dispatch])
     return (
         <div>
-            <h1>hi</h1>
             {articles.length  ? (
                     <div>
                         {articles.map(article => {

@@ -6,10 +6,10 @@ import loginToggleReducer from "../reducers/loginToggleReducer";
 import registerToggleReducer from "../reducers/registerToggleReducer";
 import pageNoReducer from "../reducers/pageNumberReducer";
 import postsPerPageReducer from "../reducers/postsPerPage";
-import articlesReducer from "../reducers/articlesReducer";
 import categoryReducer from "../reducers/categoryRedcuer";
 import sourceReducer from "../reducers/sourceReducer";
 import userReducer from "../reducers/userReducer";
+import articlesReducer from "../reducers/articlesReducer";
 
 const configStore=()=>{
     return createStore(combineReducers({
