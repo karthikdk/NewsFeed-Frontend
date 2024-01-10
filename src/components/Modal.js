@@ -37,13 +37,13 @@ const ModalComponet = (props) => {
             data-ds-backdrop='static'
         >
 
-         <Modal.Header closeButton>
+         <Modal.Header closeButton className='bg-danger text-light'>
                 <Modal.Title>
                     {loginToggle ? 'Login to your Account' : registerToggle && 'Register with us'}
                 </Modal.Title>  
          </Modal.Header>
 
-         <Modal.Body>
+         <Modal.Body className='bg-light text-dark'>
               {loginToggle ? <Login/> : registerToggle && <Register/>}
          </Modal.Body>
         </Modal>

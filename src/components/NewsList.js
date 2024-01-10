@@ -25,8 +25,7 @@ const ArticlesList = (props) => {
                     </div>
                 ) : (
                     <div style={{height : '45vh', textAlign : 'center', marginTop : '200px'}}>
-                        <h2>Nothing to show here.</h2>
-                        <h2>Go Back.</h2>
+                        <h2>Go Back Or Previous Page.</h2>
                     </div>
                 )
             }

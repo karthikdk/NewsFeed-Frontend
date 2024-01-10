@@ -4,7 +4,6 @@ export const startGetArticles=(source,category,pageNo,posts)=>{
     return async(dispatch)=>{
         try {
             const {data}=await axios.get(`http://localhost:3060/api/articles/list/?source=${source}&category=${category}&page=${pageNo}&posts=${posts}`)
-            console.log(data)
             dispatch(setArticles(data))
         } catch (error) {
             alert(error,'error')

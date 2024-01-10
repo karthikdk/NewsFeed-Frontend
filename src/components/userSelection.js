@@ -31,7 +31,7 @@ const UserSelection = (props) => {
     }
   return (
     <div className="mt-3 mb-4">
-    <h2 className="text-center">{category.charAt(0).toUpperCase() + category.slice(1)} Articles From {source}</h2>
+    <h2 className="text-center">Latest {category.charAt(0).toUpperCase() + category.slice(1)} Articles From {source}</h2>
     <div className="d-flex justify-content-between mt-3">
         <form className="d-flex justify-content-end">
             <div className="form-group  me-5">
